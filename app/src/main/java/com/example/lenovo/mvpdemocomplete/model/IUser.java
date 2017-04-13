@@ -5,9 +5,11 @@ package com.example.lenovo.mvpdemocomplete.model;
  */
 
 public interface IUser {
+    String getIp();
+
     String getName();
 
     String getPasswd();
 
-    int checkUserValidity(String name, String password);
+    int checkUserValidity(String ip, String name, String password);
 }

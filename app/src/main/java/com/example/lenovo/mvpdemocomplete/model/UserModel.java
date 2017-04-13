@@ -6,14 +6,20 @@ package com.example.lenovo.mvpdemocomplete.model;
 
 public class UserModel implements IUser {
 
+    String ip;
     String name;
     String passwd;
 
-    public UserModel(String name, String passwd) {
+    public UserModel(String ip, String name, String passwd) {
+        this.ip = ip;
         this.name = name;
         this.passwd = passwd;
     }
 
+    @Override
+    public String getIp() {
+        return ip;
+    }
 
     @Override
     public String getName() {
@@ -26,9 +32,11 @@ public class UserModel implements IUser {
     }
 
     @Override
-    public int checkUserValidity(String name, String password) {
+    public int checkUserValidity(String ip, String name, String password) {
 
-        if (name == null || passwd == null || !name.equals(getName()) || !passwd.equals(getPasswd())) {
+        if (ip == null || name == null || passwd == null ||
+                !ip.equals(getIp()) || !name.equals(getName()) || !passwd.equals(getPasswd())) {
+
             return -1;
         }
 
